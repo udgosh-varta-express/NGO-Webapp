@@ -6,7 +6,7 @@ const express = require('express');
 /**
  * @const
  */
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
 /**
  * @const
@@ -23,24 +23,32 @@ const cookieParser = require('cookie-parser');
  */
 const bodyParser = require('body-parser');
 
-const port = process.env.PORT||8080;
 
+/**
+ * @const
+ */
+const db = require("../db/db-connection")
+
+
+const port = process.env.PORT;
+
+const home = require('../routes/home');
+const index = require('../routes/index');
+const loginSignup = require('../routes/login_signup');
 
 const app = express();
-
-const home = require('../routes/home.js');
-const loginSignup = require('../routes/login_signup.js');
-
-
-
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'/../public')));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json());
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'../templates/views'));
+app.use(express.urlencoded({extended:false}))
 
-app.use('',home);
+
+// home.log
+app.use("",home);
+app.use("",index);
 app.use('',loginSignup);
 
 app.listen(port,()=>{
