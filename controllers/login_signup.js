@@ -1,17 +1,18 @@
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const Register = require("../models/user_schema")
 
 
-
+//Redirect to Login.ejs with Get Method
 exports.get_login = (req, res) => {
     res.render('login');
 }
 
+//Redirect to Register.ejs with Get Method
 exports.get_register = (req, res) => {
     res.render('register');
 }
 
+//User Registration with Post Method
 exports.save_register = async (req, res) => {
     const firstName = req.body.firstName
     const lastName = req.body.lastName
@@ -58,34 +59,33 @@ exports.save_register = async (req, res) => {
   
 }
 
-
+//Login data checked from DB with Post method
 exports.checkLoginData = async (req, res) => {
     const email = req.body.uname;
     const password = req.body.psw;
+    console.log(req.param.url);
     let passwordHashStatus;
     try {
         if (email && password) {
             const loginData = await Register.findOne({ email })
             
             if (loginData != null) {
-                // console.log(`token is ${loginData.tokens[0].token}`);
                 passwordHashStatus = await bcrypt.compare(password, loginData.password)
                const token = await loginData.generateAuthToken();
-               // console.log(passwordHashStatus);
-               // console.log(`this is token ${token}`);
                if (passwordHashStatus) {
                     res.cookie('jwt',token,{
                         expires:new Date(Date.now() + 300000),
                         httpOnly:true
                     })
+                    console.log(req.url);
                     res.status(201).redirect('/index')
+                    // next()
                 } else {
                     res.status(403).send("not matching")
                 }
             } else {
                 res.status(403).send("email and password not mathcning")
             }
-            // console.log(loginData.tokens);   
         } else {
             res.status(403).send("fill fields")
         }
@@ -98,6 +98,7 @@ exports.checkLoginData = async (req, res) => {
     }
 }
 
+//Logout User 
 exports.logout = async (req, res) => {
     try {
         res.clearCookie("jwt")

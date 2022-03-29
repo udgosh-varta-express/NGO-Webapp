@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Food</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+  </head>
+  <body class="body-background">
+    <div class="topnav" id="myTopnav">
+      <a href="/index" class="active">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <div class="dropdown">
+        <button class="dropbtn">Donate
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/book">Book Donate</a>
+          <a href="/shelter">Shelter Donate</a>
+          <a href="/food">Food Donate</a>
+          <a href="/clothes">Clothes Donate</a>
+        </div>
+      </div>
+      <div id="login" class="dropdown">
+        <button class="dropbtn">Hi <%=firstName%>!
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content dropdown-content-right">
+          <a href="#">Profile</a>
+          <a href="#">Cart</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+  
+
+    <div class="main-container">
+
+      <h1 class="headTitle">Donate Food Details</h1>
+      <div class="textDetail">
+        <input class="detailText" type="text" placeholder="Title">
+        <input class="detailText" type="text" placeholder="Pick up From">
+        <input class="detailText" type="text" placeholder="Food Type">
+        <input class="detailText" type="text" onfocus="(this.type='Date')" onblur="(this.type='text')" placeholder="Pick up Date">
+        <input class="detailText" type="text" placeholder="Food For No. Of People">
+        <input class="detailText" type="text" onfocus="(this.type='Time')" onblur="(this.type='text')" placeholder="Time">
+        <input class="detailText" type="text" placeholder="Description">
+      </div>
+      <div class="btn-primary">
+        <button type="submit" class="btn-sub">Submit</button>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

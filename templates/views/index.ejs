@@ -1,35 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+
     <div class="topnav" id="myTopnav">
-        <a href="/index" class="active">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <div class="dropdown">
-          <button class="dropbtn"><%=firstName%> 
+      <a href="/index" class="active">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <div class="dropdown">
+        <button class="dropbtn">Donate
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/book">Book Donate</a>
+          <a href="/shelter">Shelter Donate</a>
+          <a href="/food">Food Donate</a>
+          <a href="/clothes">Clothes Donate</a>
+        </div>
+      </div>
+      <div id="login" class="dropdown">
+        <button class="dropbtn">Hi <%=firstName%>!
             <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">Profile</a>
-            <a href="#">Cart</a>
-            <a href="/logout">Logout</a>
+        </button>
+        <div class="dropdown-content dropdown-content-right">
+          <a href="#">Profile</a>
+          <a href="#">Cart</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+  
+
+
+
+    <div class="top-container">
+      <p class="donate">DONATE FOR BRIGHT FUTURE</p>
+    </div>
+    <div class="main-container">
+      <div class="bottom-container">
+        <div class="bottom-sec">
+          <div class="card">
+            <img class="Imge" src="https://api.iconify.design/la/money-bill-wave.svg" alt="cash-img">
           </div>
-        </div> 
-        <!-- <a href="#about">Logout</a> -->
-        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+          <div class="card-content">
+            <p class="name">GIVE NOW</p>
+            <p class="name">Take action by making a tax-deductible donation to invisible Children</p>
+            <a class="btn">MAKE A ONE-TIME DONATION</a>
+          </div>
+        </div>
+        <div class="bottom-sec">
+          <div class="card">
+            <img class="Imge" src="https://api.iconify.design/simple-line-icons/calender.svg" alt="calender-img">
+          </div>
+          <div class="card-content">
+            <p class="name">GIVE MONTHLY</p>
+            <p class="name">Donate to Invisible Children on a monthly basis and become a fourth Estate Member</p>
+            <a class="btn">GIVE MONTHLY</a>
+          </div>
+        </div>
+        <div id="bottom-sec3" class="bottom-sec">
+          <div class="card">
+            <img class="Imge" src="https://api.iconify.design/mdi/bag-personal.svg" alt="bag-img">
+          </div>
+          <div class="card-content">
+            <p class="name">GIVE A SCHOLARSHIP</p>
+            <p class="name">Take action by making a tax-deductible donation to invisible Children</p>
+            <a class="btn">PROVIDE A SCHOLARSHIP</a>
+          </div>
+        </div>
       </div>
-      
-      <div style="padding-left:16px">
-        <h2>This is Index Page</h2>
-        <p>Resize the browser window to see how it works.</p>
-        <p>Hover over the dropdown button to open the dropdown menu.</p>
-      </div>
-</body>
-</html>
+    </div>
+    <script src="js/index.js"></script>
+    </body>
+    </html>
+    

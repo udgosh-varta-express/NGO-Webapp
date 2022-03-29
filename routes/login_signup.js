@@ -7,6 +7,8 @@ const authenticate = require('../middlewares/authenticate');
 
 router.get('/login',loginSignup.get_login);
 
+router.get('/login/:page',loginSignup.get_login);
+
 router.post('/login',loginSignup.checkLoginData);
 
 router.get('/register',loginSignup.get_register);

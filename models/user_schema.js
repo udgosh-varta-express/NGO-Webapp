@@ -28,7 +28,8 @@ const userSchema = new mongoose.Schema({
         }
     }]
 })
-    // console.log("the success part" + userSchema);
+
+
 //Generating Tokens
 userSchema.methods.generateAuthToken = async function ()
 {
@@ -39,17 +40,16 @@ userSchema.methods.generateAuthToken = async function ()
         return token;
     } catch (error) {
         res.send("the error part"+error)
-        console.log(error);
     }
 }
 
+
+//Hashing password before saving data
 userSchema.pre("save", async function(next) {
-    // console.log('pre called and password is '+this.password);
     if(this.isModified("password"))
     {
         console.log(`the current password is ${this.password}`);
         this.password = await bcrypt.hash(this.password, 10)
-        // console.log(`the current password after hasing ${this.password}`);
     }
 
     next();
