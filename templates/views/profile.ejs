@@ -1,0 +1,70 @@
+<%- include('../partials/header'); %>
+      <div class="main-container">
+          <h1 style="text-align: center;">Profile</h1>
+          <div class="table-container">
+              <% if (user.role === "ADMIN") { %>
+                <table>
+                    <tr>
+                        <th>Role</th>
+                        <th>:</th>
+                        <td><%= person.role %> </td>
+                    </tr>
+                    <tr>
+                        <th>FirstName</th>
+                        <th>:</th>
+                        <td><%= person.firstname %> </td>
+                    </tr>
+                    <tr>
+                        <th>LastName</th>
+                        <th>:</th>
+                        <td><%= person.lastname %> </td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <th>:</th>
+                        <td><%= person.email %> </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Password</th>
+                        <th>:</th>
+                        <td><a href="/forgotPassword">Change</a></td>
+                    </tr>
+                    
+                </table>
+                <% } else { %>
+                    <table>
+                        <tr>
+                            <th>Role</th>
+                            <th>:</th>
+                            <td><%= user.role %> </td>
+                        </tr>
+                        <tr>
+                            <th>FirstName</th>
+                            <th>:</th>
+                            <td><%= user.firstname %> </td>
+                        </tr>
+                        <tr>
+                            <th>LastName</th>
+                            <th>:</th>
+                            <td><%= user.lastname %> </td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <th>:</th>
+                            <td><%= user.email %> </td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Password</th>
+                            <th>:</th>
+                            <td><a href="/forgotPassword">Change</a></td>
+                        </tr>
+                        
+                    </table>
+                    <% } %>
+                  
+           
+          </div>
+      </div>
+      <%- include('../partials/footer'); %>

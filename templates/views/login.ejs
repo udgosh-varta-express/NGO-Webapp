@@ -1,0 +1,29 @@
+<%- include('../partials/header'); %>
+  <div class="form-container">
+    <form class="login" action="/auth/login" method="post">
+      <div class="imgcontainer">
+        <h2>Login Form</h2>
+        <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+      <%- include('../partials/flash-message') %>
+        <div class="container">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="email" value="<%= locals.email? email:"" %>" required>
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password">
+
+          <button class="loginbtn" type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <a class="cancelbtn" href="/auth/register">Register</a>
+          <span class="psw"> <a href="#">Forgot password ?</a></span>
+        </div>
+
+    </form>
+  </div>
+  <%- include('../partials/footer'); %>

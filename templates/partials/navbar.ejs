@@ -1,0 +1,36 @@
+<div class="topnav" id="myTopnav">
+  <a href="/" class="active">Home</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">Donate
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/book">Book Donate</a>
+      <a href="/shelter">Shelter Donate</a>
+      <a href="/food">Food Donate</a>
+      <a href="/clothes">Clothes Donate</a>
+    </div>
+  </div>
+  <a href="/joinus">Join Us</a>
+  <% if (user) { %>
+    <div id="login" class="dropdown">
+      <button class="dropbtn">Hi <%= user.firstname %>!
+          <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content dropdown-content-right">
+        <a href="/user/profile">Profile</a>
+        <% if (user.role=="ADMIN" ) { %>
+          <a href="/admin/users">Manage Users</a>
+          <% } %>
+            <a href="/auth/logout">Logout</a>
+      </div>
+    </div>
+    <% } else { %>
+      <a id="login" href="/auth/login">Login</a>
+      <a id="register" href="/auth/register">Register</a>
+
+      <% } %>
+
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
